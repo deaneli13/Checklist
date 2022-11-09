@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Kolker+Brush&display=swap');
+
+.input {
+    display: flex;
+    width: 90%;
+    position: relative;
+    align-items: center;
+  }
+
+  .input_box {
+    width: 100%;
+    border-radius: 50px;
+    padding: 20px 30px;
+    font-size: 25px;
+    border: none;
+    transition: 0.2s;
+    box-shadow: inset 0 0 5px black;
+    font-family: "Abril Fatface";
+  }
+
+  .input__box:focus {
+    box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
+    outline: none;
+  }
+  .input_submit {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin: 12px;
+    border-radius: 50px;
+    right: 0px;
+    border: none;
+    font-size: 15px;
+    background-color: #373737;
+    color: white;
+    transition: 0.2s all;
+    box-shadow: 0 0 10px black;
+  }
+  .input_submit:hover {
+    background-color: #888a8c;
+  }
+  .input_submit:active {
+    transform: scale(0.8);
+    box-shadow: 0 0 5px black;
+  }
+
+  .todos {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 47.5%;
+    padding: 15px;
+    background-color: #41579b;
+  }
+
+  .todos_single {
+    display: flex;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 15px;
+    background-image: url("https://img.freepik.com/premium-vector/crumpled-sheet-graph-paper-background_47243-1131.jpg?w=2000");
+    transition: 0.2s;
+  }
+
+  .todos_single--text {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+  }
+
+  .todos_single--text:focus {
+    outline: none;
+  }
+  
+  .icon {
+    margin-left: 10px;
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 1100px) {
+    .todos {
+      width: 45%;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .input {
+      width: 95%;
+    }
+    .container {
+      width: 95%;
+      flex-direction: column;
+    }
+    .todos {
+      width: 95%;
+      margin-bottom: 10px;
+    }
+  }
