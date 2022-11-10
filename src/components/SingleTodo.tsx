@@ -27,10 +27,24 @@ const SingleTodo = ({todo,setTodos,todos}:Props) => {
     const [editTodo, setEditTodo] = useState<string>(todo.todo);
 
     
-  return <form className="todos_single">
-    <span className="todos_single--text">{todo.todo}</span>
+  return (
+  <form className="todos_single">
+    {
+        edit ? (
+            <input value={editTodo}/>
+    ):
+        todo.isDone === Mission_Stat.FINISHED ? (
+            <s className="todos_single--text">{todo.todo}</s>
+    ) : (
+        <span className="todos_single--text">{todo.todo}</span>
+    )}
     <div>
-        <span className="icon">
+        <span className="icon" onClick={() => {
+            if(!edit && todo.isDone !== Mission_Stat.FINISHED){
+                setEdit(!edit);
+            }
+        }
+        }>
             <AiOutlineEdit/>
         </span>
         <span className="icon" onClick={() => handleDelete(todo.id)}>
@@ -43,7 +57,9 @@ const SingleTodo = ({todo,setTodos,todos}:Props) => {
             <AiOutlineCheckCircle/>
         </span>
     </div>
-  </form>;
+  </form>
+  )
+  
 
 }
 
@@ -52,3 +68,4 @@ export default SingleTodo
 function setTodos(arg0: any) {
     throw new Error('Function not implemented.')
 }
+
