@@ -15,28 +15,34 @@ const SingleTodo = ({todo,setTodos,todos}:Props) => {
 
     const handleDone = (id: number) => {
         setTodos(todos.map((todo)=> todo.id===id?{...todo,isDone: todo.isDone=Mission_Stat.FINISHED}:todo))//changing the isDone to FNISHED on click
-    }
+    };
 
     const handleInProgress = (id: number) => {
         setTodos(todos.map((todo)=> todo.id===id?{...todo,isDone: todo.isDone=Mission_Stat.IN_PROGRESS}:todo))//changing the isDone to IN_PROGRESS on click
-    }
+    };
     const handleDelete = (id: number) => {//filters the dleted task
         setTodos(todos.filter((todo) => todo.id !== id));
-    }
+    };
+    const handleEdit = (e:React.FormEvent,id: number) => {
+        e.preventDefault();//preventing the screen to refresh
+        setTodos(
+            todos.map ((todo) => (todo.id ===id?{...todo,todo:editTodo} : todo )));
+            setEdit(false);
+    };
     const [edit, setEdit] = useState<boolean>(false);
     const [editTodo, setEditTodo] = useState<string>(todo.todo);
 
     
   return (
-  <form className="todos_single">
+  <form className="todos__single" onSubmit={(e)=>handleEdit(e,todo.id)}>
     {
         edit ? (
-            <input value={editTodo}/>
+            <input value={editTodo} onChange={(e)=>setEditTodo(e.target.value)} className = 'todos__single--text'/>
     ):
         todo.isDone === Mission_Stat.FINISHED ? (
-            <s className="todos_single--text">{todo.todo}</s>
+            <s className="todos__single--text">{todo.todo}</s>
     ) : (
-        <span className="todos_single--text">{todo.todo}</span>
+        <span className="todos__single--text">{todo.todo}</span>
     )}
     <div>
         <span className="icon" onClick={() => {
