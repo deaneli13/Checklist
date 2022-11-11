@@ -1,4 +1,4 @@
-import React, { useRef, useState,useEffect } from 'react'
+import React, { useRef, useState,useEffect, useReducer } from 'react'
 import {Mission_Stat, Todo} from './model'
 import {AiOutlineEdit,AiOutlineDelete,AiOutlineCheckCircle} from 'react-icons/ai' 
 import {MdOutlineNotStarted} from 'react-icons/md'
@@ -10,7 +10,34 @@ type Props = {
     todos: Todo[];
     setTodos:React.Dispatch<React.SetStateAction<Todo[]>>;
 }
-
+/*  type Actions = 
+{type:'add',payload:string}|{type:'remove',payload:number}|{type:'inProgress',payload:number}|{type:'done',payload:number}
+const TodoReducer = (state: Todo[],action:Actions) => {
+    switch (key) {
+        case "add":
+            return [
+                ...state,
+                {id:Date.now(), todo: action.payload, isDone: Mission_Stat.WAITING},
+            ];
+            break;
+            case "remove":
+                return state.filter((todo) => todo.id ! == action.payload);
+            break;
+            case "inProgress":
+                state.map
+            break;
+            case "done":
+            
+            break;
+    
+        default:
+            break;
+    }
+}
+const ReduceF = () => {
+    const [state, dispatch] = useReducer(first, second, third)
+}
+  */
 
 const SingleTodo = ({todo,setTodos,todos}:Props) => {
     const [edit, setEdit] = useState<boolean>(false);

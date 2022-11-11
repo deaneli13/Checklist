@@ -2,7 +2,7 @@
 
 .input {
     display: flex;
-    width: 90%;
+    width: 95%;
     position: relative;
     align-items: center;
   }
@@ -44,13 +44,20 @@
     box-shadow: 0 0 5px black;
   }
 
+  .container {
+    width: 95%;
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
   .todos {
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    width: 47.5%;
+    width: 30%;
     padding: 15px;
-    background-color: #41579b;
+    /* background-color: #41579b; */
   }
 
   .todos__single {
@@ -69,10 +76,25 @@
     font-size: 20px;
   }
 
+
   .todos__single--text:focus {
     outline: none;
   }
   
+  .todos__heading {
+    font-size: 30px;
+    /* text-align: center; */
+    color: white;
+  }
+  .pending {
+    background-color: rgb(239, 109, 86);
+  }
+  .active {
+    background-color: rgb(225, 235, 80);
+  }
+  .finished {
+    background-color: rgb(106, 235, 80);
+  }
   .icon {
     margin-left: 10px;
     font-size: 25px;
