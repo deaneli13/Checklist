@@ -9,6 +9,7 @@ import {TodoList} from './components/TodoList';
 const App:React.FC = () =>  {
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
+  
 
 //Adding a new task
   const handleAdd = (e: React.FormEvent) => { 
@@ -23,7 +24,7 @@ const App:React.FC = () =>  {
     <div className="App">
       <span className="heading">Checklist</span>
       <InputField todo = {todo} setTodo = {setTodo} handleAdd = {handleAdd}/>
-     <TodoList todos={todos} setTodos={setTodos}/>
+     <TodoList pendings={todos} setPendings={setTodos} actives={[]} setActives={setTodos} done={[]} setDone={setTodos} />
     </div>
   );
 }
