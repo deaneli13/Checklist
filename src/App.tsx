@@ -24,7 +24,7 @@ const App:React.FC = () =>  {
     <div className="App">
       <span className="heading">Checklist</span>
       <InputField todo = {todo} setTodo = {setTodo} handleAdd = {handleAdd}/>
-     <TodoList pendings={todos} setPendings={setTodos} actives={[]} setActives={setTodos} done={[]} setDone={setTodos} />
+      <TodoList todos={todos} setTodos={setTodos}/>
     </div>
   );
 }

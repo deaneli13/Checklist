@@ -4,55 +4,50 @@ import SingleTodo from './SingleTodo';
 import './styles.css';
 
 interface Props{
-    pendings:Todo[];
-    setPendings:React.Dispatch<React.SetStateAction<Todo[]>>;
-    actives:Todo[];
-    setActives:React.Dispatch<React.SetStateAction<Todo[]>>;
-    done:Todo[];
-    setDone:React.Dispatch<React.SetStateAction<Todo[]>>;
+    todos:Todo[];
+    setTodos:React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
-export const TodoList:React.FC<Props> = ({pendings,setPendings,actives,setActives,done,setDone}) => {
+export const TodoList:React.FC<Props> = ({todos,setTodos}) => {
   return (
     <div className='container'>
       <div className='todos pending'>
         <span className="todos__heading"> Pending</span>
         {
           
-          pendings.map((todo) => (
+          todos.map((todo) => (
             <SingleTodo
             todo={todo}
-            todos={pendings}
+            todos={todos}
             key={todo.id}
-            setTodos={setPendings}/>
+            setTodos={setTodos}/>
           ))
         }
       </div>
       <div className='todos active'>
       <span className="todos__heading"> In Progress</span>
         {
-          actives.map((todo) =>  (
+          todos.map((todo) =>  (
             <SingleTodo
             todo={todo}
-            todos={actives}
+            todos={todos}
             key={todo.id}
-            setTodos={setActives}/>
+            setTodos={setTodos}/>
           ))
         }
       </div>
       <div className='todos finished'>
       <span className="todos__heading"> Completed Tasks</span>
         {
-          done.map((todo) => (
+          todos.map((todo) => (
             <SingleTodo
             todo={todo}
-            todos={done}
+            todos={todos}
             key={todo.id}
-            setTodos={setDone}/>
+            setTodos={setTodos}/>
           ))
         }
       </div>
     </div>
   )
 }
-
